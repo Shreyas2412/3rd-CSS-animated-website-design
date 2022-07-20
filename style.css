@@ -1,0 +1,266 @@
+
+/*Core styles*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/*Wrapper starts*/
+.wrapper {
+  background-image: url(images/background.png);
+  /* Try to set a specified height while using background img */
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* Resize the background image to cover the entire container */
+  background-size: cover;
+  /*parent*/
+  position: relative;
+}
+
+/*Wrapper ends*/
+/*Navbar starts*/
+.logo {
+  /*setting width of logo img*/
+  width: 100px;
+  cursor: pointer;
+}
+
+/*If we donot use width or height properties, then we can play with margin and padding
+to position it properly*/
+.main-nav {
+  /*85% of the container from left*/
+  width: 85%;
+  /*15% of container from top*/
+  height: 15%;
+  /*as we have specified height and width, margin is kept auto*/
+  margin: auto;
+  display: flex;
+  /*vertically align items(height of container plays a role in this)*/
+  align-items: center;
+  /*horizontally align items(width plays a role in this)*/
+  justify-content: space-between;
+}
+
+.btn {
+  color: white;
+  border: 1px solid white;
+  background: transparent;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/*Navbar ends*/
+/*Top container starts*/
+.top-container {
+  /*child*/
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  z-index: 2;
+  /*translate(x,y)axis*/
+  transform: translate(0, -50%);
+  color: white;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 10px 0 30px 0;
+  line-height: 5rem;
+}
+
+/*Top container ends*/
+/*sidebar starts*/
+.side-bar {
+  /*child*/
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  /*height is same as parent container*/
+  height: 100vh;
+  background: linear-gradient(#00545d, #000729);
+}
+
+/*This is single img outside div, thats why it is styled individually*/
+.menu {
+  display: block;
+  /*half of sidebar width*/
+  width: 25px;
+  margin: 40px auto 0;
+  cursor: pointer;
+}
+
+.social-links img, .useful-links img {
+  width: 25px;
+  margin: 5px auto;
+  cursor: pointer;
+}
+
+.social-links {
+  position: absolute;
+  width: 37px;
+  top: 50%;
+  transform: translateY(-50%);
+  /*another way, is to write text-align:center*/
+  left: 25%;
+}
+
+.useful-links {
+  position: absolute;
+  width: 37px;
+  bottom: 10px;
+  /*another way is to write text-align:center*/
+  left: 25%;
+}
+
+/*side bar ends*/
+/*animated starts*/
+.bubbles img {
+  width: 50px;
+  animation: bubble 7s linear infinite;
+}
+
+/* shorthand for :-
+bubbles img{
+animation-name: bubble;
+animation-duration: 4s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+} */
+.bubbles {
+  /*width is same as parent wrapper container*/
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+}
+
+@keyframes bubble {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+    /* We want this animation to move from 0 on y-axis to -80 on y-axis*/
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-80vh);
+    /*(-80 means it will move up on y-axis and
++80 means it will move down on y-axis, from its current position)*/
+  }
+}
+
+.bubbles img:nth-child(1) {
+  animation-delay: -2s;
+  width: 25px;
+}
+
+.bubbles img:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.bubbles img:nth-child(3) {
+  animation-delay: -3s;
+  width: 25px;
+}
+
+.bubbles img:nth-child(4) {
+  animation-delay: -4.5s;
+}
+
+.bubbles img:nth-child(5) {
+  animation-delay: -3s;
+}
+
+.bubbles img:nth-child(6) {
+  animation-delay: -6s;
+  width: 20px;
+}
+
+.bubbles img:nth-child(7) {
+  animation-delay: -7s;
+  width: 35px;
+}
+
+/*animation ends*/
+/*More styles start*/
+.menu:hover {
+  border-bottom: 3px outset white;
+}
+
+.social-links img:hover {
+  border: 1px solid white;
+  border-radius: 50px;
+  box-shadow: 0 1px 1px white;
+}
+
+.useful-links img:hover {
+  border: 1px solid white;
+  border-radius: 50px;
+  box-shadow: 0 1px 1px white;
+}
+
+.logo:hover {
+  border: 1px outset white;
+  border-radius: 50px;
+  box-shadow: 0 1px 3px white;
+}
+
+.btn:hover {
+  box-shadow: 0 1px 3px white;
+}
+
+/*More styles ends*/
+/*Media queries start*/
+@media (max-width: 500px) {
+  nav .btn {
+    position: absolute;
+    padding: 10px 34px;
+    top: 91%;
+    left: 8%;
+    z-index: 2;
+    /*translate(x,y)axis*/
+    transform: translate(0, -50%);
+  }
+
+  .main-nav {
+    justify-content: center;
+  }
+
+  .top-container {
+    right: 19%
+  }
+}
+
+@media (max-width: 768px) {
+  nav .btn {
+    position: absolute;
+    padding: 10px 34px;
+    top: 91%;
+    left: 8%;
+    z-index: 2;
+    /*translate(x,y)axis*/
+    transform: translate(0, -50%);
+  }
+
+  /*h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }*/
+}
+/*Media queries end*/
